@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: purescript-contrib/setup-purescript@main
+        with:
+          purescript: "0.15.16"
+          spago: "unstable"
+      - name: Build
+        run: spago build
+      - name: Format check
+        run: |
+          npm i -g purs-tidy@0.10.0
+          purs-tidy check src

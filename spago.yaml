@@ -1,0 +1,13 @@
+package:
+  name: wasm-base
+  publish:
+    version: 0.1.0
+    license: MIT
+    location:
+      githubOwner: purs-wasm
+      githubRepo: purescript-wasm-base
+  dependencies: []
+workspace:
+  packageSet:
+    registry: 77.4.0
+  extraPackages: {}
