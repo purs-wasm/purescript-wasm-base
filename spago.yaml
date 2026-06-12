@@ -1,5 +1,8 @@
 package:
   name: wasm-base
+  description: |
+    a thin PureScript bridge to the low-level operations 
+    the purs-wasm provides as intrinsics
   publish:
     version: 0.1.0
     license: MIT
