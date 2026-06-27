@@ -1,4 +1,4 @@
-// JS provider for `Wasm.Int64Array` — used by the `purs` / purs-backend-es builds
+// JS provider for `Wasm.I64Array` — used by the `purs` / purs-backend-es builds
 // only. The wasm backend resolves these to intrinsics and ignores this file.
 // Backed by BigInt64Array, which matches a BigInt `Wasm.Int64` and zero-initialises
 // like `array.new_default`.

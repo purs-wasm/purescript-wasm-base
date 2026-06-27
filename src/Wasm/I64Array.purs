@@ -8,7 +8,7 @@
 -- |
 -- | The `foreign import`s resolve to intrinsics on wasm (`Intrinsics.qualifiedIntrinsic`
 -- | — `Wasm.I64Array.*`); the accompanying `Wasm/I64Array.js` provides a
--- | `BigI64Array`-backed version for stock `purs` / `purs-backend-es`.
+-- | `BigInt64Array`-backed version for stock `purs` / `purs-backend-es`.
 module Wasm.I64Array
   ( I64Array
   , length

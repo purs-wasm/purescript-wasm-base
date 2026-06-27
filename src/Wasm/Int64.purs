@@ -25,9 +25,12 @@ foreign import data Int64 :: Type
 foreign import fromInt :: Int -> Int64 -- i64.extend_i32_s (sign-extends)
 
 -- | Build a 64-bit value from its high and low 32-bit words, each zero-extended:
--- | `(hi << 32) | (lo & 0xffffffff)`. Unlike `fromInt`, the low word does not
--- | sign-extend into the high half, so full-width constants whose low word has its
--- | top bit set are expressible directly, e.g. `fromHiLo 0x80000000 0x80008008`.
+-- | `(hi << 32) | (lo & 0xffffffff)`. The words are taken as 32-bit patterns, so a
+-- | word whose top bit is set is a negative `Int` (`Int` is 32-bit, max `0x7fffffff`,
+-- | so `0x80000000` is `-2147483648`). Unlike `fromInt`, the low word does not
+-- | sign-extend into the high half: `fromHiLo 0 (-1)` is `0x00000000ffffffff`, not
+-- | `0xffffffffffffffff`, so full-width constants whose low word has its top bit set
+-- | are expressible directly.
 foreign import fromHiLo :: Int -> Int -> Int64
 
 foreign import lowBits :: Int64 -> Int -- low 32 bits: i32.wrap_i64 (lossy)
